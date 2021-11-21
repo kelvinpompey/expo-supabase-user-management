@@ -13,7 +13,6 @@ export default function SignIn() {
 
   async function sendMagicLink(email?: string) {
     let redirectURL = Linking.createURL("/SignIn");
-    console.log({ redirectURL });
     if (email) {
       setSending(true);
       let result = await supabase.auth.signIn(

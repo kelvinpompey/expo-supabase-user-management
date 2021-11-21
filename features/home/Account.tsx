@@ -40,16 +40,19 @@ export default function Account() {
         const { status } =
           await ImagePicker.requestMediaLibraryPermissionsAsync();
         if (status !== "granted") {
-          /*alert(
-            "Sorry, we need camera roll permissions to upload your profile photo!"
-          );*/
+          toast.show({
+            placement: "top",
+            title: "Upload",
+            status: "warning",
+            description:
+              "Sorry, we need camera roll permissions to upload your profile photo!",
+          });
         }
       }
     })();
   }, []);
 
   async function onUpload(imageUrl: string) {
-    console.log({ imageUrl });
     let { data, error } = await supabase
       .from<Profile>("profiles")
       .upsert({ id: user?.id, avatar_url: imageUrl });
@@ -92,7 +95,6 @@ export default function Account() {
   }
 
   async function uploadImageWeb(image: ImagePicker.ImagePickerResult) {
-    console.log({ image });
     if (!image.cancelled) {
       let filename = image.uri?.split("/").pop();
       // Why are we using XMLHttpRequest? See:
@@ -135,8 +137,6 @@ export default function Account() {
   }
 
   function uploadImageMobile(image: ImagePicker.ImagePickerResult) {
-    console.log({ image });
-
     if (!image.cancelled) {
       let filename = image.uri?.split("/").pop();
 
