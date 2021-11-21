@@ -10,14 +10,25 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+
+    "scheme": "io.supabase.expo-user-management",
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos set your profile photo"
+        }
+      ]
+    ],
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "LSApplicationQueriesSchemes": ["io.supabase.expo-user-management"]
+      }
     },
     "android": {
       "adaptiveIcon": {
