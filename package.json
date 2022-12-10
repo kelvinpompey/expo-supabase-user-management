@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "types": "npx openapi-typescript https:[YOUR_SUPABASE_URL]/rest/v1/?apikey=[YOUR_SUPABASE_ANON_KEY] --output src/types/supabase.ts"
+    "types": "npx openapi-typescript@5.4.0 https:[YOUR_SUPABASE_URL]/rest/v1/?apikey=[YOUR_SUPABASE_ANON_KEY] --output src/types/supabase.ts"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "~1.15.0",
